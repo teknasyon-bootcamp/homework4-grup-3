@@ -4,7 +4,7 @@
 
         public function __construct(
            protected string $dbhost = "mariadb", 
-           protected string $dbName = "group3", 
+           protected string $dbName = "default", 
            protected string $dbLast = "default", 
            protected string $dbpass = "secret", 
         ){
