@@ -21,7 +21,7 @@
             
           <div class="card m-2" style="width: 100%;">
             <div class="card-body">
-              <h5 class="card-title">Rukiye Çadırcı</h5>
+              <h5 class="card-title">Rukiye Çadırcı - 2021</h5>
               <h6 class="card-subtitle mb-2 text-muted">08/09/2021</h6>
               <p class="card-text">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore distinctio a dicta dolore modi recusandae voluptatum quidem asperiores beatae! Molestiae nam error consequatur est voluptatem, fugit illum! Quas, dolorum deserunt!. lore
