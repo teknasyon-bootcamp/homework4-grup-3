@@ -1,1 +1,0 @@
-Furkan Biçer deneme
