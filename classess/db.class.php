@@ -3,10 +3,10 @@
     class Database{
 
         public function __construct(
-           protected string $dbhost = "localhost", 
-           protected string $dbName = "asd", 
-           protected string $dbLast = "root", 
-           protected string $dbpass = "", 
+           protected string $dbhost = "mariadb", 
+           protected string $dbName = "group3", 
+           protected string $dbLast = "default", 
+           protected string $dbpass = "secret", 
         ){
 
             try {
