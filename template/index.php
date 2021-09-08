@@ -17,7 +17,7 @@
     <div class="container">
 
         <div class="row text-success text-center">
-          <h1>- Postlarımız -</h1>
+         <h2>Postlarımız</h2>
         </div>
 
         <div class="row justify-content-evenly">
