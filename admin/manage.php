@@ -1,14 +1,8 @@
-<<<<<<< HEAD
+
 <?php 
     include __DIR__ . "../../classess/post.class.php";
     include "../config/config.php";
 
-
-=======
->>>>>>> f22b147d4f1ad71b98df5e61d78b20e71a2e58d9
-
-<?php 
-    include "../classess/post.class.php";
     if($_GET['post']){
         $sayi = $_GET['post'];
     }else{
@@ -23,7 +17,7 @@
     $deleted_at = $user[0]["deleted_at"]; 
     $update_at  = $user[0]["update_at"]; 
     $created_at = $user[0]["created_at"]; 
-<<<<<<< HEAD
+
 
 
     if(isset($_POST['head'])){
@@ -40,9 +34,6 @@
 
 
     $update = $Posts->Update($head, $content, $nowDate, $id);
-=======
->>>>>>> f22b147d4f1ad71b98df5e61d78b20e71a2e58d9
-
     
 
 ?>
@@ -79,7 +70,7 @@
                 $action = $_GET['action'];
                 $post   = $_GET['post'];
 
-<<<<<<< HEAD
+
                 if($action == "edit"):
                     
                     // Düzenleme Başalngıç
@@ -115,7 +106,11 @@
                         </div>
                     </div>
                     <div class="row mt-3  justify-content-end">
-                        <button type="submit">Güncelle</button>
+                        <button type="submit" class="btn btn-success w-25">
+                            Güncelle
+                            <i class="fas fa-edit"></i>
+                        </button>
+
                         &nbsp;
                         <a href="./manage.php?post=<?= $id; ?>" class="btn btn-danger col-md-6 w-25">
                             İptal
@@ -190,54 +185,6 @@
 
         
         ?>
-
-
-
-        
-
- 
-            
-=======
-            <h2><?= $name; ?></h2>
-        </div>
-        <div class="row mt-3">
-            <img src="../config/images/<?= $image; ?>" class="img-fluid" alt="">
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-6 btn">
-                <?= $created_at; ?>
-                <i class="fas fa-clock"></i>
-            </div>
-            <div class="col-md-6 btn">
-                <?php
-                if ($update_at==null) {
-                    echo "Henüz güncelleme yapılmadı";
-                }
-                else {
-                    echo $update_at;
-                    echo '<i class="fas fa-clock"></i>';
-                }
-                
-                
-                ?>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-md-12">
-            <?= $content; ?>
-            </div>
-        </div>
-        <div class="row mt-3  justify-content-end">
-            <a href="http://" class="btn btn-info col-md-6 w-25">
-                Güncelle
-                <i class="fas fa-edit"></i>
-            </a> 
-            &nbsp;
-            <a href="http://" class="btn btn-danger col-md-6 w-25">
-            Sil
-            <i class="fas fa-times-circle"></i>
-            </a>
->>>>>>> f22b147d4f1ad71b98df5e61d78b20e71a2e58d9
 
 
         </div>
