@@ -1,3 +1,20 @@
+<?php 
+
+  include '../config/config.php';
+  include __DIR__ . "../../classess/post.class.php";
+  
+  
+  $users  = $Posts->index();
+
+ 
+  
+
+
+?>
+
+
+
+
 <!doctype html>
 <html lang="tr">
   <head>
@@ -22,71 +39,71 @@
 
         <div class="row justify-content-evenly">
 
-        <!-- Post için hazırladığımız kardlar -->
 
+        <?php 
 
-        <div class="card mt-5" style="width: 18rem;">
-          <img src="../config/images/wall1.jpg" class="card-img-top mt-2" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Rukiye Çadırcı</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dignissimos adipisci aperiam quas nesciunt amet quos asperiores repellat ipsam consequatur facilis deserunt quasi omnis non, quisquam provident voluptate aliquam minus!
-            </p>
-            <a href="#" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
-          </div>
-        </div>
+          if(isset($_GET['post'])):
+            $LimitUser = $_GET['post'];
 
+            
+          $idUser = $Posts->Limit($LimitUser);
 
-        <div class="card mt-5" style="width: 18rem;">
-          <img src="../config/images/wall1.jpg" class="card-img-top mt-2" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Rukiye Çadırcı</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dignissimos adipisci aperiam quas nesciunt amet quos asperiores repellat ipsam consequatur facilis deserunt quasi omnis non, quisquam provident voluptate aliquam minus!
-            </p>
-            <a href="#" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
-          </div>
-        </div>
+          $idUser = $idUser[0];
+        ?>  
+            <a href="<?= $url . "template/index.php"; ?>">
+              <div class="row justify-content-center mt-3">
+                <div class="col-md-4 btn btn-danger">
+                  <i class="fas fa-times-circle"></i>
+                  <label>Çık</label>
+                </div>
+              </div>
+            </a>
 
-        <div class="card mt-5" style="width: 18rem;">
-          <img src="../config/images/wall1.jpg" class="card-img-top mt-2" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Rukiye Çadırcı</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dignissimos adipisci aperiam quas nesciunt amet quos asperiores repellat ipsam consequatur facilis deserunt quasi omnis non, quisquam provident voluptate aliquam minus!
-            </p>
-            <a href="#" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
-          </div>
-        </div>
+            <div class="card mt-5" style="width: 18rem;">
+              <img src= <?= $url . "config/images/$idUser[image]"; ?> class="card-img-top mt-2" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><?= $idUser['name']; ?></h5>
+                <p class="card-text">
+                  <?= $idUser['content']; ?>
+                </p>
+                <a href="<?= $url . "admin/manage.php?post=$idUser[id]" ?>" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
+              </div>
+            </div>
 
+        <?php
 
-        <div class="card mt-5" style="width: 18rem;">
-          <img src="../config/images/wall1.jpg" class="card-img-top mt-2" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Rukiye Çadırcı</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dignissimos adipisci aperiam quas nesciunt amet quos asperiores repellat ipsam consequatur facilis deserunt quasi omnis non, quisquam provident voluptate aliquam minus!
-            </p>
-            <a href="#" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
-          </div>
-        </div>
+          else:
+            $LimitUser = '';
+          
+        ?>
 
-        <div class="card mt-5" style="width: 18rem;">
-          <img src="../config/images/wall1.jpg" class="card-img-top mt-2" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Rukiye Çadırcı</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dignissimos adipisci aperiam quas nesciunt amet quos asperiores repellat ipsam consequatur facilis deserunt quasi omnis non, quisquam provident voluptate aliquam minus!
-            </p>
-            <a href="#" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
-          </div>
-        </div>
+          <!-- Post için hazırladığımız kardlar -->
+        <?php foreach($users as $item): ?>
 
+            <div class="card mt-5" style="width: 18rem;">
+              <img src= <?= $url . "config/images/$item[image]"; ?> class="card-img-top mt-2" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><?= $item['name']; ?></h5>
+                <p class="card-text">
+                  <?= $item['content']; ?>
+                </p>
+                <a href="<?= $url . "admin/manage.php?post=$item[id]" ?>" class="btn btn-outline-info">Detay <i class="fas fa-pen"></i></a>
+              </div>
+            </div>  
+
+        <?php endforeach; ?>
+
+          <!-- Post için hazırladığımız kardların bitişi -->
+
+        <?php
+
+          endif;
        
         
+        ?>
 
 
-        <!-- Post için hazırladığımız kardların bitişi -->
+        
 
 
         </div>

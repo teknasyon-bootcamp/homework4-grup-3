@@ -7,7 +7,9 @@
            public string $dbName = "grup3", 
            public string $dbLast = "root", 
            public string $dbpass = "", 
-        ){}
+        ){
+           
+        }
 
         public function connect(){
             try {
