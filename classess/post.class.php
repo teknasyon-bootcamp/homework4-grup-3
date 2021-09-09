@@ -22,6 +22,22 @@
 
         }
 
+        public function Update($name, $content, $up_at, $id){
+
+            $str = "UPDATE posts SET name = ?, content = ?, update_at = ? WHERE id = ?";
+            $data = $this->connect()->prepare($str);
+            $data->execute([
+                $name,
+                $content,
+                $up_at,
+                $id,
+            ]);
+
+            
+
+        }
+
+
     }
 
     $Posts = new Posts();
