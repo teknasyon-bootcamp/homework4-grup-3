@@ -49,6 +49,8 @@
           $idUser = $Posts->Limit($LimitUser);
 
           $idUser = $idUser[0];
+
+
         ?>  
             <a href="<?= $url . "template/index.php"; ?>">
               <div class="row justify-content-center mt-3">
@@ -74,6 +76,7 @@
 
           else:
             $LimitUser = '';
+            
           
         ?>
 

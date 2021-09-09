@@ -26,6 +26,8 @@
     endif;
 
     
+
+    
     $user       = $Posts->Limit($sayi);
     $id         = $user[0]["id"]; 
     $image      = $user[0]["image"]; 
@@ -137,11 +139,12 @@
                 $deleteId = $_GET["post"];
 
                     
-                $Posts->Delete($deleteId);
+            
+                    $Posts->Delete($deleteId);
+                    echo "şuan burdasın";
+                    header("Location: ../template/index.php");
+                    exit;
                 
-
-
-
 
 
 
@@ -195,7 +198,7 @@
                             <i class="fas fa-edit"></i>
                         </a> 
                         &nbsp;
-                        <a href="./manage.php?action=delete&post=<?= $id; ?>" class="btn btn-danger col-md-6 w-25">
+                        <a href="./manage.php?action=delete&post=<?= $id; ?>" name="sil" class="btn btn-danger col-md-6 w-25">
                             Sil
                             <i class="fas fa-times-circle"></i>
                         </a> 
