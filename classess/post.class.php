@@ -37,6 +37,13 @@
             
 
         }
+        public function Delete($id){
+            $str = "DELETE posts SET where id =?";
+            $data = $this->connect()->prepare($str);
+            $data->execute([
+                $id,
+            ]);
+        }
 
 
     }

@@ -130,7 +130,25 @@
                
                 elseif($action == "delete"):
 
-                    echo "silme sayfası";
+
+                 //silme işlemi başlangıç..   
+
+
+                $deleteId = $_GET["post"];
+
+                    
+                $Posts->Delete($deleteId);
+                
+
+
+
+
+
+
+
+
+
+                 //silme işlemi bitiş..   
 
                 elseif($action == "create"):
 
