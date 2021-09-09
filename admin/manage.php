@@ -8,6 +8,23 @@
     }else{
         echo "";
     }
+
+    if(isset($_POST['head'])){
+        $head = $_POST['head'];                
+    }else{
+      $head = '';    
+    }
+  
+    if(isset($_POST['content'])){
+        $content = $_POST['content']; 
+    }else{
+        $content = '';
+    }
+  
+    if(isset($_POST['update'])):
+        $update = $Posts->Update($head, $content, $nowDate, $sayi);
+    endif;
+
     
     $user       = $Posts->Limit($sayi);
     $id         = $user[0]["id"]; 
@@ -20,20 +37,8 @@
 
 
 
-    if(isset($_POST['head'])){
-      $head = $_POST['head'];                
-    }else{
-      $head = '';    
-    }
+    
 
-    if(isset($_POST['content'])){
-        $content = $_POST['content']; 
-    }else{
-        $content = '';
-    }
-
-
-    $update = $Posts->Update($head, $content, $nowDate, $id);
     
 
 ?>
@@ -106,7 +111,7 @@
                         </div>
                     </div>
                     <div class="row mt-3  justify-content-end">
-                        <button type="submit" class="btn btn-success w-25">
+                        <button type="submit" name="update" class="btn btn-success w-25">
                             Güncelle
                             <i class="fas fa-edit"></i>
                         </button>
