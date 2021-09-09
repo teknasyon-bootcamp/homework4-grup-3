@@ -146,17 +146,105 @@
                     exit;
                 
 
-
-
-
-
-
                  //silme işlemi bitiş..   
 
                 elseif($action == "create"):
 
-                    echo "Ekleme Sayfası";
 
+                    
+                
+                if(isset($_FILES['file'])){
+                    $file = $_FILES['file'];
+                }else{
+                    $file = "";
+                }
+
+                if(isset($_POST['name'])){
+                    $name = $_POST['name'] . "  ";
+                }else{
+                    $name = "";
+                }
+
+                if(isset($_POST['content'])){
+                    $content = $_POST['content'];
+                }else{
+                    $content = "";
+                }
+
+                
+                if(isset($_POST['ekleme'])){
+                    $Posts->addPost($file, $name, $content, $nowDate);
+                }
+                
+                
+                                  
+
+            ?>
+
+                <form action="./manage.php?action=create&post=<?= $id; ?>" method="post" enctype="multipart/form-data">
+
+                    <div class="md-3 mt-3">
+                        <label class="form-label">Resim</label>
+                        <input type="file" name="file" class="form-control">
+                    </div>
+
+                    <div class="md-3 mt-3">
+                        <label class="form-label">İsim / Soyisim</label>
+                        <input type="text" name="name" class="form-control">
+                    </div>
+
+                    <div class="md-3 mt-3">
+                        <label class="form-label">Açıklama</label>
+                        <textarea name="content" cols="30" class="form-control" rows="10"></textarea>
+                    </div>
+
+                    <div class="row justify-content-end mt-3">
+                        <button class="btn btn-success w-25" name="ekleme">
+                            Kayıt Et
+                            <i class="fas fa-save"></i>
+                        </button>
+                        &nbsp;
+                        <a href="" class="btn btn-danger w-25">
+                            Kayıt Et
+                            <i class="fas fa-times-circle"></i>
+                        </a>
+                    </div>
+
+                </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <?php
                 endif;
 
             else:

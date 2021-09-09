@@ -1,8 +1,9 @@
 <?php 
-    include '../config/config.php';
     include __DIR__ . "./db.class.php";
 
     class Posts extends Database{
+
+        public string $url = "http://localhost/homework4-grup-3/";
 
         public function index(){
 
@@ -44,6 +45,29 @@
                 $id,
             ]);
             
+        }
+
+        public function addPost($image, $name, $content, $cre_at){
+
+
+            $imageName  = $image['name'];
+            $type       = $image['type'];
+            $tmp_name   = $image['tmp_name'];
+            $error      = $image['error'];
+            $size       = $image['size'];
+
+            
+            $dosyaYolu  = $this->url . "config/images/";
+            $sonYol     = $dosyaYolu;
+
+                
+            if(move_uploaded_file($tmp_name, $sonYol)){
+                echo "resim yüklendi";
+            }
+
+    
+       
+
         }
 
 
