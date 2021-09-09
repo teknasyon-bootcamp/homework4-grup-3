@@ -18,7 +18,7 @@
             $data = $this->connect()->prepare($str);
             $data->execute([$id]);
 
-            return $data->fetchAll(PDO::FETCH_ASSOC);
+            return $data->fetchAll(PDO::FETCH_ASSOC);  //fetch_assoc; veritabanı tablosundaki verileri isimleri ile getirir
 
         }
 
