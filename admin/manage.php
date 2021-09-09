@@ -1,11 +1,22 @@
-<?php 
 
+<?php 
+    include "../classess/post.class.php";
     if($_GET['post']){
         $sayi = $_GET['post'];
     }else{
         echo "";
     }
+    
+    $user       = $Posts->Limit($sayi);
+    $id         = $user[0]["id"]; 
+    $image      = $user[0]["image"]; 
+    $name       = $user[0]["name"]; 
+    $content    = $user[0]["content"]; 
+    $deleted_at = $user[0]["deleted_at"]; 
+    $update_at  = $user[0]["update_at"]; 
+    $created_at = $user[0]["created_at"]; 
 
+    
 
 ?>
 <!doctype html>
@@ -33,25 +44,33 @@
         </div>
         <div class="row mt-3">
 
-            <h2>Başlık</h2>
-                    
+            <h2><?= $name; ?></h2>
         </div>
         <div class="row mt-3">
-            <img src="../config/images/wall1.jpg" class="img-fluid" alt="">
+            <img src="../config/images/<?= $image; ?>" class="img-fluid" alt="">
         </div>
         <div class="row mt-3">
             <div class="col-md-6 btn">
-                Oluşturma Tarihi
+                <?= $created_at; ?>
                 <i class="fas fa-clock"></i>
             </div>
             <div class="col-md-6 btn">
-                Güncelleme Tarihi
-                <i class="fas fa-clock"></i>
+                <?php
+                if ($update_at==null) {
+                    echo "Henüz güncelleme yapılmadı";
+                }
+                else {
+                    echo $update_at;
+                    echo '<i class="fas fa-clock"></i>';
+                }
+                
+                
+                ?>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, id omnis reprehenderit ut, eveniet iure error nam tempore quas impedit placeat quibusdam nihil soluta similique, temporibus at corrupti obcaecati officiis?
+            <?= $content; ?>
             </div>
         </div>
         <div class="row mt-3  justify-content-end">
