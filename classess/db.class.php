@@ -3,23 +3,22 @@
     class Database{
 
         public function __construct(
-           protected string $dbhost = "mariadb", 
-           protected string $dbName = "default", 
-           protected string $dbLast = "default", 
-           protected string $dbpass = "secret", 
-        ){
+           public string $dbhost = "localhost", 
+           public string $dbName = "grup3", 
+           public string $dbLast = "root", 
+           public string $dbpass = "", 
+        ){}
 
+        public function connect(){
             try {
                 $str = "mysql:host=".$this->dbhost.";dbname=".$this->dbName;
-                $db = new PDO($str, $this->dbLast, $dbpass);
-                echo "bağlandı";
-            } catch (\Throwable $th) {
+                $db = new PDO($str, $this->dbLast, $this->dbpass);
+                return $db;
+            } catch (\PDOException $th) {
                 die("Sistem Bakım Hatası");
 
             }
-
         }
 
 
     }
-
