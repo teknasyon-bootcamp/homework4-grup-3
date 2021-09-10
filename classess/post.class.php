@@ -59,7 +59,21 @@
            $dizin="../config/images/";
            $hedef=$dizin.basename($imageName);
 
-           move_uploaded_file($tmp_name,$hedef);
+
+
+           if(move_uploaded_file($tmp_name,$hedef)):
+
+                $str  = "INSERT INTO posts (image, name, content, created_at) VALUES (?, ?, ?, ?)";
+
+                $data = $this->connect()->prepare($str);
+                $data->execute([
+                    $imageName,
+                    $name,
+                    $content,
+                    $cre_at,
+                ]);
+            
+           endif;
 
     
        
