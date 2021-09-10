@@ -56,14 +56,10 @@
             $error      = $image['error'];
             $size       = $image['size'];
 
-            
-            $dosyaYolu  = $this->url . "config/images/";
-            $sonYol     = $dosyaYolu;
+           $dizin="../config/images/";
+           $hedef=$dizin.basename($imageName);
 
-                
-            if(move_uploaded_file($tmp_name, $sonYol)){
-                echo "resim yüklendi";
-            }
+           move_uploaded_file($tmp_name,$hedef);
 
     
        
